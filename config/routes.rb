@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   get 'flatuipro_demo/index'
 
 root to: 'static_pages#home'
