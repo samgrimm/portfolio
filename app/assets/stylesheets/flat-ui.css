@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
+body { padding-top: 75px; 
+padding-bottom: 30px; 
+padding-left: 30px;
+padding-right: 30px;  }
+
 @font-face {
   font-family: "Flat-UI-Icons";
   src: url("/assets/Flat-UI-Icons.eot");

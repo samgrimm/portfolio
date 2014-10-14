@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   get 'users/new'
+
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   get 'flatuipro_demo/index'
 

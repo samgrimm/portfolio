@@ -1,3 +1,10 @@
 <%# add navigation links to this file %>
 <%= link_to 'About me', static_pages_about_path, class: 'navbar-brand' %>
 <%= link_to 'Contact', static_pages_contact_path, class: 'navbar-brand' %>
+<% if signed_in? %>
+	<%= link_to 'Profile', current_user, class: 'navbar-brand' %>
+	<%= link_to "Sign out", signout_path, class: 'navbar-brand', method: "delete" %>
+
+<% else %>
+    <%= link_to "Sign in", signin_path, class: 'navbar-brand'%>
+<% end %>
