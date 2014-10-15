@@ -13,6 +13,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:projects) }
   it { should be_valid }
 
   describe "when name is not present" do
@@ -95,6 +96,21 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "project associations" do
+
+    before { @user.save }
+    let!(:older_project) do
+      FactoryGirl.create(:project, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_project) do
+      FactoryGirl.create(:project, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right projects in the right order" do
+      expect(@user.projects.to_a).to eq [newer_project, older_project]
+    end
   end
 
 end
