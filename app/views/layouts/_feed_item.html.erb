@@ -1,8 +1,8 @@
 <li id="<%= feed_item.id %>">
-  <h3><%= feed_item.title%></h3>
+  <h3><%= link_to feed_item.title, feed_item %></h3>
   <%= image_tag feed_item.image_url(:thumb) if feed_item.image? %>
   <%= content_tag "div", class: "in-hiding", id: "myLink_#{feed_item.id}", data: {link: feed_item.file_url, title: feed_item.title} do %> <% end %>
-  <%= link_to(feed_item.title, '#', :id => "newLink_#{feed_item.id}") if feed_item.file%>
+  <%= link_to feed_item.title, feed_item.download_url, :id => "newLink_#{feed_item.id}", class: "hidden" ,:target => "_blank" if feed_item.file%>
 <button class="btn btn-success" type="button" title=<%=feed_item.title%> onclick=tweetThis("<%= feed_item.id %>") >Tweet to Download</button>
 
 
@@ -11,14 +11,14 @@ function tweetThis(id) {
   var diving = "#myLink_" + id;
   var linkID = "#newLink_" +id;
   var newLink = $(diving).data('link');
-  testLink = "http://localhost:3000" + newLink;
+  
   console.log(newLink);
   var title  = escape($(diving).data('title'));
-  var win = window.open('http://twitter.com/share?url=' + testLink + '&text=' + title + '&', 'twitterwindow', 'height=450, width=550, top='+($(window).height()/2 - 225) +', left='+$(window).width()/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+  var win = window.open('http://twitter.com/share?url=' + newLink + '&text=' + title + '&', 'twitterwindow', 'height=450, width=550, top='+($(window).height()/2 - 225) +', left='+$(window).width()/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
   var timer = setInterval(function() {   
     if(win.closed) {  
         clearInterval(timer);  
-        $(linkID).attr("href", testLink );
+        $(linkID).attr('class', 'btn btn-success');
         }  
 }, 1000);
 

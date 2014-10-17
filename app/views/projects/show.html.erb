@@ -1,0 +1,38 @@
+
+  <h3><%= @project.title%></h3>
+  <%= image_tag @project.image_url(:thumb) if @project.image? %>
+  <%= content_tag "div", class: "in-hiding", id: "myLink_#{@project.id}", data: {link: @project.file_url, title: @project.title} do %> <% end %>
+  <%= link_to @project.title, @project.download_url, :id => "newLink_#{@project.id}", class: "hidden" ,:target => "_blank" if @project.file%>
+<button class="btn btn-success" type="button" title=<%=@project.title%> onclick=tweetThis("<%= @project.id %>") >Tweet to Download</button>
+
+
+<script type="text/javascript">
+function tweetThis(id) {
+  var diving = "#myLink_" + id;
+  var linkID = "#newLink_" +id;
+  var newLink = $(diving).data('link');
+  
+  console.log(newLink);
+  var title  = escape($(diving).data('title'));
+  var win = window.open('http://twitter.com/share?url=' + newLink + '&text=' + title + '&', 'twitterwindow', 'height=450, width=550, top='+($(window).height()/2 - 225) +', left='+$(window).width()/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+  var timer = setInterval(function() {   
+    if(win.closed) {  
+        clearInterval(timer);  
+        $(linkID).attr('class', 'btn btn-success');
+        }  
+}, 1000);
+
+}
+</script>
+
+
+
+  <span class="content"><%= @project.description %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@project.created_at) %> ago.
+  </span>
+  <% if current_user?(@project.user) %>
+    <%= link_to "delete", @project, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: @project.title %>
+  <% end %>

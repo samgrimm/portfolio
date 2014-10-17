@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :projects, only: [:create, :destroy]
+  resources :projects, only: [:create, :destroy, :show]
   get 'users/new'
 
   match '/signin',  to: 'sessions#new',         via: 'get'

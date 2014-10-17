@@ -7,4 +7,17 @@ class Project < ActiveRecord::Base
 
 	mount_uploader :image, ImageUploader
 	mount_uploader :file, FileUploader
+
+def download_url
+  s3 = AWS::S3.new.buckets[ 'samantha-portfolio' ]
+  file = s3.objects[self.filename]
+  file.url_for( :read,
+    expires_in: 60.minutes, 
+    use_ssl: true,
+    response_content_disposition: "attachment; filename='#{self.filename}'" ).to_s
+end
+
+def filename
+	self.file_url.split("/").last(5).join("/")
+end
 end
