@@ -6,6 +6,8 @@ gem 'rails', '4.1.5'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
+gem "carrierwave"
+gem "mini_magick"
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "rspec-rails", '~> 2.14.0.rc1'

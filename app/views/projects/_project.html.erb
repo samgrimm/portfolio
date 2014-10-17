@@ -1,5 +1,8 @@
 <li>
   <h3><%= project.title%></h3>
+  <%= image_tag project.image_url(:thumb) if project.image? %>
+    <%= link_to project.title, project.file_url if project.file?%>
+
   <span class="content"><%= project.description %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(project.created_at) %> ago.
