@@ -24,7 +24,7 @@ end
   private
 
     def project_params
-      params.require(:project).permit(:description, :title, :image, :file)
+      params.require(:project).permit(:description, :title, :image, :file, :tag_list)
     end
 
     def correct_user

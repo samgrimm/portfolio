@@ -10,6 +10,13 @@
         <%= render 'layouts/project_form' %>
     </div>
     <div class="col-md-4">
+<%= form_tag root_path, method: :get , :class => "form-inline" do %>
+  <p>
+    <%= text_field :query, params[:query], class: "tagsinput tagsinput-primary" %>
+    <%= submit_tag "Search", name: nil, class: "btn btn-success" %>
+  </p>
+<% end %>
+
        <ol class="projects">
         <h3>Project Feed</h3>
       <%= render 'layouts/feed' %>

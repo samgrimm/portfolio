@@ -13,5 +13,8 @@
    <%= f.label :file %>
    <%= f.file_field :file %>
 
+  <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= f.text_field :tag_list, class: "tagsinput tagsinput-primary" %>
+
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

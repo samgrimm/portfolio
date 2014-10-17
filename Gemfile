@@ -5,12 +5,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
+gem 'will_paginate-bootstrap'
 gem "carrierwave"
 gem "mini_magick"
 gem 'fog'
 gem "figaro"
 gem "aws-sdk"
+gem 'acts-as-taggable-on'
+gem 'pg_search', "0.7.4"
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "rspec-rails", '~> 2.14.0.rc1'
