@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :newsletters do
+    member do
+      post 'send_mail'
+    end
+  end
+
+  resources :subscribers
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :projects, only: [:create, :destroy, :show]
@@ -7,6 +15,9 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signup',  to: 'users#new',            via: 'get'
+
+
+  match '/weekly', to: 'newsletter_mailer#weekly', via: 'get'
 
   get 'flatuipro_demo/index'
 
@@ -18,6 +29,7 @@ root to: 'static_pages#home'
   get 'static_pages/about'
 
   get 'static_pages/contact'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

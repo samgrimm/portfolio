@@ -1,0 +1,30 @@
+<h1><%= @newsletter.title %></h1>
+
+<p>
+  <%= @greeting %>
+</p>
+<p>
+  <%= @newsletter.content1 %>
+</p>	
+<p>
+  <%= @newsletter.content2 %>
+</p>
+<p>
+  <%= @newsletter.content3 %>
+</p>
+
+<p>
+  <strong>Image1:</strong>
+  <%= image_tag @newsletter.image1_url(:thumb) %>
+</p>
+
+<p>
+  <strong>Image2:</strong>
+  <<%= image_tag @newsletter.image2_url(:thumb) %>
+</p>
+
+<p>
+  <strong>Image3:</strong>
+  <%= image_tag @newsletter.image3_url(:thumb) %>
+</p>	
+

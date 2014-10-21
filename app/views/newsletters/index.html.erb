@@ -1,0 +1,38 @@
+<h1>Listing newsletters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content1</th>
+      <th>Content2</th>
+      <th>Content3</th>
+      <th>Image1</th>
+      <th>Image2</th>
+      <th>Image3</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newsletters.each do |newsletter| %>
+      <tr>
+        <td><%= newsletter.title %></td>
+        <td><%= newsletter.content1 %></td>
+        <td><%= newsletter.content2 %></td>
+        <td><%= newsletter.content3 %></td>
+        <td><%= newsletter.image1 %></td>
+        <td><%= newsletter.image2 %></td>
+        <td><%= newsletter.image3 %></td>
+        <td><%= link_to 'Show', newsletter %></td>
+        <td><%= link_to 'Edit', edit_newsletter_path(newsletter) %></td>
+        <td><%= link_to 'Send', send_mail_newsletter_path(newsletter), method: :post %></td>
+        <td><%= link_to 'Destroy', newsletter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Newsletter', new_newsletter_path %>

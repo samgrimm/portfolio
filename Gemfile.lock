@@ -144,6 +144,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     mime-types (1.25.1)
     mini_magick (3.8.1)
       subexec (~> 0.2.1)
@@ -274,6 +277,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails
   less-rails-bootstrap
+  mandrill-api
   mini_magick
   minitest
   pg

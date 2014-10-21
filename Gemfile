@@ -13,6 +13,7 @@ gem "figaro"
 gem "aws-sdk"
 gem 'acts-as-taggable-on'
 gem 'pg_search', "0.7.4"
+gem 'mandrill-api'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "rspec-rails", '~> 2.14.0.rc1'

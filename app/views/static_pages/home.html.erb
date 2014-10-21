@@ -5,6 +5,9 @@
     <div class="col-md-3">
       
         <%= render 'layouts/user_info' %>
+        <%= render 'subscribers/subscribe' %>
+        <%= link_to "Send Newsletter", newsletters_path, class:"btn btn-success", method: :post %>
+
     </div>  
     <div class="col-md-3">  
         <%= render 'layouts/project_form' %>

@@ -19,10 +19,11 @@ def User.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
 end
 
-  def feed
-    # This is preliminary. See "Following users" for the full implementation.
-    Project.where("user_id = ?", id)
-  end
+def feed
+  # This is preliminary. See "Following users" for the full implementation.
+  Project.where("user_id = ?", id)
+end
+
 
   private
 

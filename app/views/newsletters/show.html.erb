@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @newsletter.title %>
+</p>
+
+<p>
+  <strong>Content1:</strong>
+  <%= @newsletter.content1 %>
+</p>
+
+<p>
+  <strong>Content2:</strong>
+  <%= @newsletter.content2 %>
+</p>
+
+<p>
+  <strong>Content3:</strong>
+  <%= @newsletter.content3 %>
+</p>
+
+<p>
+  <strong>Image1:</strong>
+  <%= image_tag @newsletter.image1_url(:thumb) %>
+</p>
+
+<p>
+  <strong>Image2:</strong>
+  <<%= image_tag @newsletter.image2_url(:thumb) %>
+</p>
+
+<p>
+  <strong>Image3:</strong>
+  <%= image_tag @newsletter.image3_url(:thumb) %>
+</p>
+
+<%= link_to 'Edit', edit_newsletter_path(@newsletter) %> |
+<%= link_to 'Back', newsletters_path %>
