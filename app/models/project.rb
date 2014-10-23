@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
 	acts_as_taggable
 	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true
-	validates :description, presence: true, length: { maximum: 250 }
+	validates :description, presence: true
 	validates :title, presence: true, length: { maximum: 100 }
 
 	mount_uploader :image, ImageUploader
@@ -24,7 +24,8 @@ end
 
 
   include PgSearch
-  pg_search_scope :search, against: [:title, :description], using: {tsearch: {dictionary: "english"}}
+  pg_search_scope :search, against: [:title, :description], :associated_against => { :tags => [:name] },
+  using: {tsearch: {dictionary: "english"}}
 
   def self.text_search(query)
     if query.present?

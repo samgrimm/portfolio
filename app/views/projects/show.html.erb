@@ -1,10 +1,30 @@
+<div class='container-fluid'>
+  <div class="row">
+    <div class='col-xs-12 col-sm-6 col-md-3'>
+      <h4>Similar Projects</h4>
+      <%= render partial: 'layouts/feed_item', :collection => @feed_items ,  :as => :feed_item  %>
+      <h4>Subscribe to our newsletter</h4>
+      <%= render 'subscribers/subscribe' %>
+    </div>
 
-  <h3><%= @project.title%></h3>
-  <%= image_tag @project.image_url(:thumb) if @project.image? %>
-  <%= content_tag "div", class: "in-hiding", id: "myLink_#{@project.id}", data: {link: @project.file_url, title: @project.title} do %> <% end %>
-  <%= link_to @project.title, @project.download_url, :id => "newLink_#{@project.id}", class: "hidden" ,:target => "_blank" if @project.file%>
-<button class="btn btn-success" type="button" title=<%=@project.title%> onclick=tweetThis("<%= @project.id %>") >Tweet to Download</button>
-
+    <div class='col-xs-12 col-sm-6 col-md-9'>  
+      <h3><%= @project.title%></h3>
+      <p>Posted <%= time_ago_in_words(@project.created_at) %> ago.</p>
+      <%= image_tag @project.image_url , class: "img-rounded img-responsive"if @project.image? %>
+      
+      <p><%= raw(@project.description) %></p>
+      
+      <% if current_user?(@project.user) %>
+        <%= link_to "delete", @project, method: :delete,
+                                       data: { confirm: "You sure?" },
+                                       title: @project.title %>
+      <% end %>
+      <%= content_tag "div", class: "in-hiding", id: "myLink_#{@project.id}", data: {link: @project.file_url, title: @project.title} do %> <% end %>  
+      <%= link_to @project.title, @project.download_url, :id => "newLink_#{@project.id}", class: "hidden" ,:target => "_blank" if @project.file%>
+      <button class="btn btn-default" type="button" title=<%=@project.title%> onclick=tweetThis("<%= @project.id %>") >Tweet to Download</button>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
 function tweetThis(id) {
@@ -24,15 +44,3 @@ function tweetThis(id) {
 
 }
 </script>
-
-
-
-  <span class="content"><%= @project.description %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(@project.created_at) %> ago.
-  </span>
-  <% if current_user?(@project.user) %>
-    <%= link_to "delete", @project, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: @project.title %>
-  <% end %>

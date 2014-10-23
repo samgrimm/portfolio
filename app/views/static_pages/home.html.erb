@@ -1,36 +1,20 @@
+
 <% provide(:title, 'Home') %>
 
 <% if signed_in? %>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      
-        <%= render 'layouts/user_info' %>
-        <%= render 'subscribers/subscribe' %>
-        <%= link_to "Send Newsletter", newsletters_path, class:"btn btn-success", method: :post %>
-
-    </div>  
     <div class="col-md-3">  
         <%= render 'layouts/project_form' %>
-    </div>
-    <div class="col-md-4">
-<%= form_tag root_path, method: :get , :class => "form-inline" do %>
-  <p>
-    <%= text_field :query, params[:query], class: "tagsinput tagsinput-primary" %>
-    <%= submit_tag "Search", name: nil, class: "btn btn-success" %>
-  </p>
-<% end %>
-
-       <ol class="projects">
-        <h3>Project Feed</h3>
+    </div>    
+    <div class="col-md-8">
       <%= render 'layouts/feed' %>
-      </ol>
-     
+
     </div>
   </div>
-<% else %>
+</div> 
+<%end %>      
+<h3>Current Projects</h3>
+<%= link_to 'Back', root_path %>
+<%= render 'layouts/feed' %> 
 
-<h1>Samantha Cabral</h1>
-<p>Tool builder</p>
-<span class="fui-star"></span>
-<div><%= image_tag "icons/Compas_2x.png" %></div>
-<%end%>

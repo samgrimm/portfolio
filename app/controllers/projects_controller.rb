@@ -19,6 +19,8 @@ class ProjectsController < ApplicationController
 
 def show
   @project = Project.find(params[:id])
+  @subscriber = Subscriber.new
+  @feed_items = Project.tagged_with(@project.tags)
 end
 
   private

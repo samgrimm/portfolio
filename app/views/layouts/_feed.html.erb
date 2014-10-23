@@ -1,6 +1,15 @@
-<% if @feed_items.try(:any?) %>
-  <ol class="projects">
-    <%= render partial: 'layouts/feed_item', collection: @feed_items %>
-  </ol>
-  <%= will_paginate @feed_items %>
+<% if @feed_items.count(:all) == 0 %>
+<h4>No items were found</h4>
+<% else %>
+<div class="container-fluid">
+  
+  <div class="row ">
+
+          <%= render partial: 'layouts/feed_item', :collection => @feed_items ,  :as => :feed_item  %>
+
+  </div>
+  <div class="clearfix visible-xs-block"></div>
+ </div>   
+  <%= paginate @feed_items %>
+
 <% end %>

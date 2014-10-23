@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,300,700);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
 body { padding-top: 75px; 
 padding-bottom: 30px; 
 padding-left: 30px;
@@ -403,7 +404,8 @@ you can use the generic selector below, but it's slower:
 }
 body {
   color: #34495e;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
   font-size: 14px;
   line-height: 1.231;
 }
@@ -411,10 +413,13 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Lato', sans-serif;
+ font-family: 'Raleway', sans-serif;
   font-size: 14px;
+  font-weight: 100;
 }
 a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
   color: #16a085;
   text-decoration: none;
   -webkit-transition: 0.25s;
@@ -429,26 +434,33 @@ a:hover {
 }
 h1,
 .h1 {
+  font-family: 'Raleway', sans-serif;
   font-size: 62.006px /* 64px */;
+
 }
 h2,
 .h2 {
+  font-family: 'Raleway', sans-serif;
   font-size: 51.996px /* 52px */;
 }
 h3,
 .h3 {
+  font-family: 'Raleway', sans-serif;
   font-size: 39.998000000000005px /* 40px */;
 }
 h4,
 .h4 {
+  font-family: 'Raleway', sans-serif;
   font-size: 28.994000000000003px /* 29px */;
 }
 h5,
 .h5 {
+  font-family: 'Raleway', sans-serif;
   font-size: 28px /* 28px */;
 }
 h6,
 .h6 {
+  font-family: 'Raleway', sans-serif;
   font-size: 23.996px /* 24px */;
 }
 h1,
@@ -478,16 +490,17 @@ h3 {
   margin-top: 2px;
 }
 h4 {
-  font-weight: 500;
+  font-weight: 300;
   margin-top: 4px;
 }
 h5 {
-  font-weight: 500;
+  font-weight: 300;
 }
 h6 {
-  font-weight: normal;
+  font-weight: 100;
 }
 p {
+  font-family: 'Raleway', sans-serif;
   font-size: 18.004px;
   /* 18px */
 
@@ -496,6 +509,7 @@ p {
 
 }
 .lead {
+  font-family: 'Raleway', sans-serif;
   font-size: 28px;
   /* 28px */
 
@@ -1015,7 +1029,7 @@ a.muted:focus {
 }
 .navbar .brand:hover,
 .navbar .brand:focus {
-  color: #1abc9c;
+  color: #34495E;
 }
 .navbar .brand[class*="fui-"] {
   font-weight: normal;
@@ -1093,7 +1107,7 @@ a.muted:focus {
 }
 .navbar .nav > li > a:hover,
 .navbar .nav > li > a:focus {
-  color: #1abc9c;
+  color: #34495E;
 }
 .navbar .nav > li > a[class*="fui-"] {
   font-size: 24px;
@@ -1262,12 +1276,12 @@ a.muted:focus {
 }
 .navbar-unread,
 .navbar-new {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   background-color: #1abc9c;
   border-radius: 50%;
   color: #ffffff;
   font-size: 0;
-  font-weight: 700;
+  font-weight: 100;
   height: 6px;
   line-height: 14px;
   position: absolute;
@@ -1429,7 +1443,7 @@ a.muted:focus {
   background-color: #ffffff;
   border: 2px solid transparent;
   color: #526476;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14.994px;
   /* 15px */
 
@@ -1795,7 +1809,7 @@ input[type="color"],
 .uneditable-input {
   border: 2px solid #bdc3c7;
   color: #34495e;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   padding: 8px 5px;
   height: 21px;
@@ -3183,6 +3197,7 @@ input.search-query {
   color: #bdc3c7;
 }
 .tagsinput {
+  font-family: 'Raleway', sans-serif;
   background: white;
   border: 2px solid #ebedef;
   border-radius: 6px;
@@ -3193,6 +3208,7 @@ input.search-query {
   text-align: left;
 }
 .tagsinput .tag {
+  font-family: 'Raleway', sans-serif;
   border-radius: 4px;
   background-color: #ebedef;
   color: #7b8996;
@@ -3228,7 +3244,7 @@ input.search-query {
   background: transparent;
   border: none;
   color: #34495e;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   margin: 0px;
   padding: 0 0 0 5px;
@@ -5566,7 +5582,7 @@ input.search-query {
   background-color: #2a7aaf;
   border-radius: 50%;
   color: #ffffff;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 11.998px;
   font-weight: 500;
   line-height: 18.998px;
@@ -6342,3 +6358,51 @@ input.search-query {
 .mal {
   margin-left: 20px;
 }
+
+.tile {
+  position: relative;
+  padding: 14px;
+  margin-bottom: 20px;
+  text-align: left;
+  background-color: #eff0f2;
+  border-radius: 6px;
+  height: 350px
+  }
+.tile .tile-hot-ribbon {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: block;
+  width: 82px;
+  }
+.tile p {
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 33px;
+  font-size: 15px;
+  }
+.tile-image {
+  height: 100px;
+  margin: 31px 0 27px;
+  vertical-align: bottom;
+  }
+.tile-image.big-illustration {
+  width: 112px;
+  height: 111px;
+  margin-top: 20px;
+  }
+.tile-title {
+  margin: 0;
+  font-size: 20px;
+  }
+
+  .displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+.row.borders{
+    display: inline-flex;
+    width: 100%;
+}
+
+

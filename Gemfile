@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'will_paginate-bootstrap'
+gem 'kaminari'
 gem "carrierwave"
 gem "mini_magick"
 gem 'fog'

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       post 'send_mail'
     end
   end
-
+ get 'tags/:tag', to: 'static_pages#home', as: :tag
   resources :subscribers
 
   resources :users
